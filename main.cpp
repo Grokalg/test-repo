@@ -115,6 +115,27 @@ bool testIsRed_CloseEqualsOpen_ReturnsFalse()
     return candle.is_red() == false;
 }
 
+bool testIsGreen_CloseMoreThanOpen_ReturnsTrue()
+{
+    Candle candle{ 3.0, 3.0, 3.0, 4.0 };
+
+    return candle.is_green() == true;
+}
+
+bool testIsGreen_CloseLessThanOpen_ReturnsFalse()
+{
+    Candle candle{ 4.0, 3.0, 3.0, 3.0 };
+
+    return candle.is_green() == false;
+}
+
+bool testIsGreen_CloseEqualsOpen_ReturnsFalse()
+{
+    Candle candle{ 4.0, 4.0, 3.0, 4.0 };
+
+    return candle.is_green() == false;
+}
+
 void initTests()
 {
     tests.push_back(testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue);
@@ -136,6 +157,10 @@ void initTests()
     tests.push_back(testIsRed_CloseLessThanOpen_ReturnsTrue);
     tests.push_back(testIsRed_CloseMoreThanOpen_ReturnsFalse);
     tests.push_back(testIsRed_CloseEqualsOpen_ReturnsFalse);
+
+    tests.push_back(testIsGreen_CloseMoreThanOpen_ReturnsTrue);
+    tests.push_back(testIsGreen_CloseLessThanOpen_ReturnsFalse);
+    tests.push_back(testIsGreen_CloseEqualsOpen_ReturnsFalse);
 }
 
 int launchTests()
