@@ -8,36 +8,33 @@
 //массив всех тестов, который мы заполняем в функции initTests
 static std::vector<std::function<bool()>> tests;
 
-//тест 1
-bool test1()
+bool testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue()
 {
-  //пример какого-то теста
-  return 42 == (41 + 1); //passed
+    Candle candle_green{ 10.0, 3.0, 20.0, 20.0 };
+
+    return candle_green.body_contains(15) == true;
 }
 
-//тест 2
-bool test2()
+bool testBodyContains_PriceInsideBodyRedCandle_ReturnsTrue()
 {
-  //пример какого-то теста
-  return 42 != (41 + 1); //failed
+    Candle candle_red{ 20.0, 3.0, 20.0, 10.0 };
+
+    return candle_red.body_contains(15) == true;
 }
 
-//тест 3
-bool test3()
+bool testBodyContains_PriceOutsideBody_ReturnsFalse()
 {
-  Candle candle{ 0.0, 3.0, 3.0, 3.0 };
+    Candle candle_green{ 10.0, 3.0, 20.0, 20.0 };
 
-  //пример какого-то теста
-  return candle.high == 3.0;
+    return candle_green.body_contains(21) == false;
 }
+
 
 void initTests()
 {
-  tests.push_back(test1);
-  tests.push_back(test2);
-  tests.push_back(test3);
-  //tests.push_back(test4);
-  //tests.push_back(test5);
+    tests.push_back(testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue);
+    tests.push_back(testBodyContains_PriceInsideBodyRedCandle_ReturnsTrue);
+    tests.push_back(testBodyContains_PriceOutsideBody_ReturnsFalse);
 }
 
 int launchTests()
