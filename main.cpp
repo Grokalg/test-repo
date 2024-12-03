@@ -29,12 +29,36 @@ bool testBodyContains_PriceOutsideBody_ReturnsFalse()
     return candle_green.body_contains(21) == false;
 }
 
+bool testContains_PriceInsideBody_ReturnsTrue()
+{
+    Candle candle{ 10.0, 20.0, 10.0, 15.0 };
+
+    return candle.contains(15.0) == true;
+}
+
+bool testContains_PriceOutsideBody_ReturnsFalse()
+{
+    Candle candle{ 10.0, 20.0, 10.0, 15.0 };
+
+    return candle.contains(25.0) == false;
+}
+
+bool testContains_PriceOnBoundary_ReturnsTrue()
+{
+    Candle candle{ 10.0, 20.0, 10.0, 15.0 };
+
+    return candle.contains(20.0) == true;
+}
 
 void initTests()
 {
     tests.push_back(testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue);
     tests.push_back(testBodyContains_PriceInsideBodyRedCandle_ReturnsTrue);
     tests.push_back(testBodyContains_PriceOutsideBody_ReturnsFalse);
+
+    tests.push_back(testContains_PriceInsideBody_ReturnsTrue);
+    tests.push_back(testContains_PriceOutsideBody_ReturnsFalse);
+    tests.push_back(testContains_PriceOnBoundary_ReturnsTrue);
 }
 
 int launchTests()
