@@ -71,6 +71,29 @@ bool testFullSize_HighEqualsLow()
     return candle.full_size() == 0;
 }
 
+bool testBodySize_CloseEqualsOpen()
+{
+    Candle candle{ 95.0, 140.0, 94.0, 95.0 };
+
+    return candle.body_size() == 0;
+}
+
+bool testBodySize_BigValues()
+{
+    double open = 1e9 + 500.0;
+    double close = 1e9;
+    Candle candle{ open, open, close, close };
+
+    return candle.body_size() == 500;
+}
+
+bool testBodySize_NegativeValues()
+{
+    Candle candle{ -110.0, 95.0, -110.0, 95.0 };
+
+    return candle.body_size() == 205;
+}
+
 void initTests()
 {
     tests.push_back(testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue);
@@ -84,6 +107,10 @@ void initTests()
     tests.push_back(testFullSize_PositiveValues);
     tests.push_back(testFullSize_NegativeValues);
     tests.push_back(testFullSize_HighEqualsLow);
+
+    tests.push_back(testBodySize_CloseEqualsOpen);
+    tests.push_back(testBodySize_BigValues);
+    tests.push_back(testBodySize_NegativeValues);
 }
 
 int launchTests()
