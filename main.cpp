@@ -50,6 +50,27 @@ bool testContains_PriceOnBoundary_ReturnsTrue()
     return candle.contains(20.0) == true;
 }
 
+bool testFullSize_PositiveValues()
+{
+    Candle candle{ 95.0, 140.0, 90.0, 110.0 };
+
+    return candle.full_size() == 50;
+}
+
+bool testFullSize_NegativeValues()
+{
+    Candle candle{ -110.0, -90.0, -140.0, -89.0 };
+
+    return candle.full_size() == 50;
+}
+
+bool testFullSize_HighEqualsLow()
+{
+    Candle candle{ 95.0, 95.0, 95.0, 95.0 };
+
+    return candle.full_size() == 0;
+}
+
 void initTests()
 {
     tests.push_back(testBodyContains_PriceInsideBodyGreenCandle_ReturnsTrue);
@@ -59,6 +80,10 @@ void initTests()
     tests.push_back(testContains_PriceInsideBody_ReturnsTrue);
     tests.push_back(testContains_PriceOutsideBody_ReturnsFalse);
     tests.push_back(testContains_PriceOnBoundary_ReturnsTrue);
+
+    tests.push_back(testFullSize_PositiveValues);
+    tests.push_back(testFullSize_NegativeValues);
+    tests.push_back(testFullSize_HighEqualsLow);
 }
 
 int launchTests()
