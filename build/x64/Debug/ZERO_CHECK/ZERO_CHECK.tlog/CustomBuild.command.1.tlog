@@ -1,0 +1,10 @@
+^C:\USERS\VEHTE\DOCUMENTS\РАБОТА\ТЕСТОВОЕЗАДАНИЕПРОП-ДЕСК\TEST-REPO\BUILD\CMAKEFILES\DA454EAC0157C1CFAA47E079118AE9D0\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo -BC:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo/build/testproj.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

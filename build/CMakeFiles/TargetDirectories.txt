@@ -1,0 +1,3 @@
+C:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo/build/CMakeFiles/testproj.dir
+C:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/vehte/Documents/Работа/ТестовоеЗаданиеПроп-деск/test-repo/build/CMakeFiles/ZERO_CHECK.dir
